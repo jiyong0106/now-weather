@@ -8,9 +8,9 @@ const AppLayout = () => {
       <Header />
 
       <div className="flex-1 flex flex-col lg:flex-row lg:overflow-hidden">
-        <aside className="w-full lg:w-[400px]  border-b lg:border-b-0 lg:border-r border-slate-200">
+        <div className="w-full lg:w-[400px] lg:border-r border-slate-200">
           <Sidebar />
-        </aside>
+        </div>
 
         <main className="flex-1 overflow-y-auto px-6 py-8 lg:px-20 lg:py-10">
           <Outlet />
