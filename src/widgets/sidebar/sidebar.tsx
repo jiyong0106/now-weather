@@ -1,7 +1,9 @@
+import CurrentWeatherCard from "@/entities/weather/ui/current-weather-card";
+
 const Sidebar = () => {
   return (
     <aside className="p-10 h-full">
-      <div>sidebar</div>
+      <CurrentWeatherCard />
     </aside>
   );
 };

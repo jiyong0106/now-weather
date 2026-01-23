@@ -4,11 +4,11 @@ import Sidebar from "../sidebar/sidebar";
 
 const AppLayout = () => {
   return (
-    <div className="min-h-dvh lg:h-dvh flex flex-col bg-slate-50 overflow-x-hidden">
+    <div className="min-h-dvh lg:h-dvh flex flex-col overflow-x-hidden">
       <Header />
 
       <div className="flex-1 flex flex-col lg:flex-row lg:overflow-hidden">
-        <aside className="w-full lg:w-[400px] flex-shrink-0 border-b lg:border-b-0 lg:border-r border-slate-200">
+        <aside className="w-full lg:w-[400px]  border-b lg:border-b-0 lg:border-r border-slate-200">
           <Sidebar />
         </aside>
 
