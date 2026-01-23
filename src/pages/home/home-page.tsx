@@ -1,6 +1,5 @@
-import LocationCard from "@/entities/location/ui/location-card";
 import SearchBar from "@/features/search/ui/search-bar";
-import Tabs from "@/shared/ui/tabs";
+import LocationBoard from "@/widgets/location-board/location-board";
 
 const HomePage = () => {
   return (
@@ -8,10 +7,7 @@ const HomePage = () => {
       <div className="lg:max-w-200">
         <SearchBar />
       </div>
-      <div className="w-100">
-        <LocationCard />
-      </div>
-      <Tabs />
+      <LocationBoard />
     </div>
   );
 };

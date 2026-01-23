@@ -6,7 +6,7 @@ const SearchBar = () => {
     <div>
       <Input
         placeholder="지역검색"
-        className="h-14 bg-slate-100/50 border-none rounded-2xl pr-12 pl-4"
+        className="h-14 bg-slate-100/50 border-none rounded-xl pr-12 pl-4"
         suffix={<LuSearch size={20} className="absolute right-2 top-3" />}
       />
     </div>

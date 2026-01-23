@@ -9,9 +9,7 @@ interface Props {
 
 const CommonCard = ({ children, className }: Props) => {
   return (
-    <div className={`bg-[#E0F2FF] rounded-[12px] p-6 ${className}`}>
-      {children}
-    </div>
+    <div className={`bg-[#E0F2FF] rounded-xl p-6 ${className}`}>{children}</div>
   );
 };
 
