@@ -1,6 +1,8 @@
 const Sidebar = () => {
   return (
-    <aside></aside>
+    <aside className="p-10 h-full">
+      <div>sidebar</div>
+    </aside>
   );
 };
 
