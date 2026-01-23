@@ -1,4 +1,5 @@
 import SearchBar from "@/features/search/ui/search-bar";
+import FloatButton from "@/shared/ui/float-button";
 import LocationBoard from "@/widgets/location-board/location-board";
 
 const HomePage = () => {
@@ -8,6 +9,7 @@ const HomePage = () => {
         <SearchBar />
       </div>
       <LocationBoard />
+      <FloatButton className="fixed bottom-20 right-20" />
     </div>
   );
 };

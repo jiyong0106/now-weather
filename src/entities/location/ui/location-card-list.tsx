@@ -1,15 +1,17 @@
 import LocationCard from "./location-card";
 
-interface Props {}
+interface Props {
+  locations: string[];
+}
 
-const LocationCardList = () => {
+const LocationCardList = ({ locations }: Props) => {
   return (
-    <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-4">
-      <LocationCard />
+    <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-4 overflow-y-auto max-h-[300px] lg:max-h-none">
+      {locations.map((location) => (
+        <LocationCard key={location} location={location} />
+      ))}
     </div>
   );
 };
 
 export default LocationCardList;
-
-// grid-template-columns: repeat(5, 1fr);

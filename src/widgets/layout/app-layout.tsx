@@ -12,7 +12,10 @@ const AppLayout = () => {
           <Sidebar />
         </div>
 
-        <main className="flex-1 overflow-y-auto px-6 py-8 lg:px-20 lg:py-10">
+        <main
+          className="flex-1 overflow-y-auto px-6 py-8 lg:px-20 lg:py-10"
+          id="scroll-root"
+        >
           <Outlet />
         </main>
       </div>
