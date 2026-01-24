@@ -6,13 +6,14 @@ interface Props {
 }
 
 const ToggleFavorite = ({ data }: Props) => {
-  const { favorites, toggleFavorite } = useFavoriteStore();
+  const favorites = useFavoriteStore((s) => s.favorites);
+  const toggleFavorite = useFavoriteStore((s) => s.toggleFavorite);
 
   // 현재 이 카드가 즐겨찾기 상태인지 확인
   const isFavorite = favorites.includes(data);
 
   const handleToggle = (e: React.MouseEvent) => {
-    e.stopPropagation(); // 카드 클릭 전파 방지
+    e.stopPropagation();
     toggleFavorite(data);
   };
 

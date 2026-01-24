@@ -5,6 +5,7 @@ import districtsData from "@/shared/api/korea_districts.json";
 import useSearchStore from "@/features/search/model/use-search-store";
 import ToggleFavorite from "@/features/toggle-favorite/ui/toggle-favoirte";
 import { useFavoriteStore } from "@/features/toggle-favorite/model/use-favorite-store";
+import EditLocation from "@/features/edit-location/ui/edit-location";
 
 const tabs = [
   { key: "region", label: "지역" },
@@ -18,7 +19,7 @@ const LocationBoard = () => {
   // 한번에 자를 데이터의 수
   const [limit, setLimit] = useState<number>(100);
   const { searchValue } = useSearchStore();
-  const { favorites } = useFavoriteStore();
+  const favorites = useFavoriteStore((s) => s.favorites);
 
   // 지역 및  데이터필터링
   const filterLocationData = useMemo(() => {
@@ -82,7 +83,12 @@ const LocationBoard = () => {
       <Tabs tabs={tabs} currentTab={currentTab} onTabChange={setCurrentTab} />
       <LocationCardList
         locations={filterLocationData}
-        renderAction={(location) => <ToggleFavorite data={location} />}
+        renderAction={(location) => (
+          <>
+            {currentTab === "favorite" && <EditLocation location={location} />}
+            <ToggleFavorite data={location} />
+          </>
+        )}
       />
       <div ref={ref} />
     </div>
