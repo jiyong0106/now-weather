@@ -5,7 +5,7 @@ import debounce from "lodash/debounce";
 import { useMemo } from "react";
 
 const SearchBar = () => {
-  const setSearchValue = useSearchStore((s) => s.setSearchValue);
+  const { setSearchValue } = useSearchStore();
 
   // lodash를 사용한 debounce 입력
   const debouncedSetSearch = useMemo(

@@ -3,8 +3,8 @@ import LocationCardList from "@/entities/location/ui/location-card-list";
 import { useEffect, useMemo, useRef, useState } from "react";
 import districtsData from "@/shared/api/korea_districts.json";
 import useSearchStore from "@/features/search/model/use-search-store";
-
 import ToggleFavorite from "@/features/toggle-favorite/ui/toggle-favoirte";
+import { useFavoriteStore } from "@/features/toggle-favorite/model/use-favorite-store";
 
 const tabs = [
   { key: "region", label: "지역" },
@@ -17,11 +17,12 @@ const LocationBoard = () => {
   const [currentTab, setCurrentTab] = useState<string>("region");
   // 한번에 자를 데이터의 수
   const [limit, setLimit] = useState<number>(100);
-  const searchValue = useSearchStore((s) => s.searchValue);
+  const { searchValue } = useSearchStore();
+  const { favorites } = useFavoriteStore();
 
-  // 지역 탭에 대한 데이터만 가져오기
+  // 지역 및  데이터필터링
   const filterLocationData = useMemo(() => {
-    let data = currentTab === "region" ? districtsData : [];
+    let data = currentTab === "region" ? districtsData : favorites;
 
     if (searchValue) {
       data = data.filter((location) => location.includes(searchValue));
