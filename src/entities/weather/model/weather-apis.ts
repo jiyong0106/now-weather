@@ -7,6 +7,7 @@ interface WeatherParams {
   ny: number;
   base_date: string;
   base_time: string;
+  numOfRows?: number;
 }
 //  초단기 실황 =>당일 기온 조회
 export const getNcstData = async (params: WeatherParams) => {

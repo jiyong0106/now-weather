@@ -7,6 +7,7 @@ const instance = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+  // 고정값들
   params: {
     ServiceKey,
     dataType: "JSON",

@@ -7,21 +7,18 @@ import {
   getNcstData,
   getFcstData,
 } from "@/entities/weather/model/weather-apis";
-import { format, subMinutes } from "date-fns";
 import type {
   NcstItemType,
   FcstItemType,
 } from "@/entities/weather/model/weather-types";
+import { getFcstTime, getNcstTime } from "@/entities/weather/model/getBaseTime";
 
 const Sidebar = () => {
   // lat 위도 lon 경도
   const [grid, setGrid] = useState<{ nx: number; ny: number } | null>(null);
-  const now = new Date();
   // 정각에 데이터 안나오는걸 대비해서 여유롭게 현재 시간에서 -10분
-  const safeTime = subMinutes(now, 10);
-  const base_date = format(safeTime, "yyyyMMdd");
-  const base_time = format(safeTime, "HHmm");
-
+  const ncts = getNcstTime();
+  const fcst = getFcstTime();
   // 1. 초단기 실황
   const { data: ncstdata } = useQuery<{ item: NcstItemType[] }>({
     queryKey: ["ncstDataKey", grid],
@@ -29,13 +26,11 @@ const Sidebar = () => {
       getNcstData({
         nx: grid!.nx,
         ny: grid!.ny,
-        base_date,
-        base_time,
+        base_date: ncts.baseDate,
+        base_time: ncts.baseTime,
       }),
     enabled: !!grid,
   });
-
-  const t1hItem = ncstdata?.item.find((f) => f.category === "T1H");
 
   // 2, 단기예보
   const { data: fcstData } = useQuery<{ item: FcstItemType[] }>({
@@ -44,12 +39,28 @@ const Sidebar = () => {
       getFcstData({
         nx: grid!.nx,
         ny: grid!.ny,
-        base_date,
-        base_time,
+        base_date: fcst.baseDate,
+        base_time: fcst.baseTime,
+        numOfRows: 290,
       }),
     enabled: !!grid,
   });
-  console.log(fcstData);
+
+  // 1. 초단기실황에서 현재 기온(T1H) 찾기
+  const t1hItem = ncstdata?.item.find((f) => f.category === "T1H");
+  // 2. 단기예보에서 최저기온(TMN) 찾기
+  const tmnItem = fcstData?.item.find((f) => f.category === "TMN");
+  // 3. 단기예보에서 최고기온(TMX) 찾기
+  const tmxItem = fcstData?.item.find((f) => f.category === "TMX");
+
+  const combinedWeather = {
+    current: t1hItem,
+    min: tmnItem,
+    max: tmxItem,
+  };
+
+  // 시간대별은
+  // 카테고리가 TMP 인것만
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -61,7 +72,7 @@ const Sidebar = () => {
 
   return (
     <aside className="p-10 h-full flex flex-col gap-6">
-      <CurrentWeatherCard item={t1hItem} />
+      <CurrentWeatherCard item={combinedWeather} />
       <HourlyWeatherCard />
     </aside>
   );
