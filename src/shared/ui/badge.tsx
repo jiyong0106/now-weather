@@ -12,9 +12,9 @@ interface Props {
 }
 
 const Badge = ({ label, value, labelColor }: Props) => (
-  <div className="flex gap-2 items-center bg-white/50 px-3 py-2 rounded-xl border border-white/20">
-    <span className={`font-bold text-sm ${labelColor}`}>{label}</span>
-    <span className="font-bold text-slate-700">{value}</span>
+  <div className="flex gap-2 items-center bg-white px-3 py-2 rounded-xl ">
+    <span className={`font-bold text-xl ${labelColor}`}>{label}</span>
+    <span className="font-bold text-2xl">{value}</span>
   </div>
 );
 
