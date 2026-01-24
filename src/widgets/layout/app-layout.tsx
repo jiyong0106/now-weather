@@ -6,7 +6,6 @@ const AppLayout = () => {
   return (
     <div className="min-h-dvh lg:h-dvh flex flex-col overflow-x-hidden">
       <Header />
-
       <div className="flex-1 flex flex-col lg:flex-row lg:overflow-hidden">
         <div className="w-full lg:w-[400px] lg:border-r border-slate-200">
           <Sidebar />

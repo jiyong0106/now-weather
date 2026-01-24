@@ -40,7 +40,7 @@ const LocationBoard = () => {
         });
       },
       {
-        root: document.getElementById("scroll-root"),
+        root: null,
         rootMargin: "0px",
         threshold: 0.1,
       },
@@ -68,7 +68,7 @@ const LocationBoard = () => {
   // data에서 slice로 한번에 80개씩 불러오기,
 
   return (
-    <div className="bg-red-400">
+    <div>
       <Tabs tabs={tabs} currentTab={currentTab} onTabChange={setCurrentTab} />
       <LocationCardList locations={filterLocationData} />
       <div ref={ref} />
