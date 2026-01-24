@@ -9,7 +9,7 @@ interface Props {
 const HourlyWeatherCard = ({ items = [] }: Props) => {
   return (
     <CommonCard className="flex flex-col gap-4 overflow-y-auto">
-      <h3 className="text-xl font-bold text-slate-800">시간대별 기온</h3>
+      <h3 className="text-2xl font-bold text-slate-800">시간대별 기온</h3>
 
       {/* 내부 스크롤 영역 */}
       <div className="flex flex-col gap-1  max-h-[320px] lg:max-h-[500px]  pr-2 ">

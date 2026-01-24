@@ -11,7 +11,7 @@ const CurrentWeatherCard = ({ items = {} }: Props) => {
   return (
     <CommonCard className="flex flex-col gap-6 !p-8 shadow-sm border border-blue-100/50">
       {/* 제목과 아이콘 */}
-      <h3 className="text-xl ">현재 날씨</h3>
+      <h3 className="text-2xl ">현재 날씨</h3>
 
       {/* 메인 기온 및 상태 */}
       <div className="flex flex-col">
