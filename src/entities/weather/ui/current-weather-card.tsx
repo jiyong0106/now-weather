@@ -1,7 +1,12 @@
 import Badge from "@/shared/ui/badge";
 import CommonCard from "@/shared/ui/common-card";
+import type { NcstItemType } from "../model/weather-types";
 
-const CurrentWeatherCard = () => {
+interface Props {
+  item?: NcstItemType;
+}
+
+const CurrentWeatherCard = ({ item }: Props) => {
   return (
     <CommonCard className="flex flex-col gap-6 !p-8 shadow-sm border border-blue-100/50">
       {/* 제목과 아이콘 */}
@@ -11,11 +16,10 @@ const CurrentWeatherCard = () => {
       <div className="flex flex-col">
         <div className="flex items-baseline gap-1">
           <span className="text-8xl font-black tracking-tighter text-slate-800">
-            25
+            {item ? item.obsrValue : "--"}
           </span>
           <span className="text-4xl font-bold text-slate-600">°C</span>
         </div>
-        <p className="text-2xl font-semibold text-slate-700 mt-2 ml-1">맑음</p>
       </div>
 
       {/*  구분선  */}
