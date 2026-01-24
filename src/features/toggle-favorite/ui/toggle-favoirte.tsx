@@ -1,19 +1,25 @@
-import { useState } from "react";
 import { GoStar, GoStarFill } from "react-icons/go";
+import { useFavoriteStore } from "../model/use-favorite-store";
 
-interface Props {}
+interface Props {
+  data: string;
+}
 
-const ToggleFavorite = () => {
-  const [isFavorite, setIsFavorite] = useState(false);
+const ToggleFavorite = ({ data }: Props) => {
+  const { favorites, toggleFavorite } = useFavoriteStore();
 
-  const handleToggle = () => {
-    setIsFavorite((prev) => !prev);
+  // 현재 이 카드가 즐겨찾기 상태인지 확인
+  const isFavorite = favorites.includes(data);
+
+  const handleToggle = (e: React.MouseEvent) => {
+    e.stopPropagation(); // 카드 클릭 전파 방지
+    toggleFavorite(data);
   };
 
   return (
-    <button type="button" onClick={handleToggle}>
+    <button onClick={handleToggle}>
       {isFavorite ? (
-        <GoStarFill size={20} fill="#ffd94d" />
+        <GoStarFill color="#ffd94d" size={20} />
       ) : (
         <GoStar size={20} />
       )}

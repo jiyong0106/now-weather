@@ -4,6 +4,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import districtsData from "@/shared/api/korea_districts.json";
 import useSearchStore from "@/features/search/model/use-search-store";
 
+import ToggleFavorite from "@/features/toggle-favorite/ui/toggle-favoirte";
+
 const tabs = [
   { key: "region", label: "지역" },
   { key: "favorite", label: "즐겨찾기" },
@@ -77,7 +79,10 @@ const LocationBoard = () => {
   return (
     <div>
       <Tabs tabs={tabs} currentTab={currentTab} onTabChange={setCurrentTab} />
-      <LocationCardList locations={filterLocationData} />
+      <LocationCardList
+        locations={filterLocationData}
+        renderAction={(location) => <ToggleFavorite data={location} />}
+      />
       <div ref={ref} />
     </div>
   );
