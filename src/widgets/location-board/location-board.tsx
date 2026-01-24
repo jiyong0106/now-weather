@@ -1,7 +1,8 @@
 import Tabs from "@/shared/ui/tabs";
 import LocationCardList from "@/entities/location/ui/location-card-list";
 import { useEffect, useMemo, useRef, useState } from "react";
-import districtsData from "@/shared/api/test.json";
+import districtsData from "@/shared/api/korea_districts.json";
+import useSearchStore from "@/features/search/model/use-search-store";
 
 const tabs = [
   { key: "region", label: "지역" },
@@ -14,14 +15,20 @@ const LocationBoard = () => {
   const [currentTab, setCurrentTab] = useState<string>("region");
   // 한번에 자를 데이터의 수
   const [limit, setLimit] = useState<number>(100);
+  const searchValue = useSearchStore((s) => s.searchValue);
 
   // 지역 탭에 대한 데이터만 가져오기
   const filterLocationData = useMemo(() => {
-    if (currentTab === "region") {
-      return districtsData.slice(0, limit);
+    let data = currentTab === "region" ? districtsData : [];
+
+    if (searchValue) {
+      data = data.filter((location) => location.includes(searchValue));
     }
-    return [];
-  }, [currentTab, limit]);
+
+    // 인풋에 입력했을때 공백을 하이픈으롤 인식하게
+
+    return data.slice(0, limit);
+  }, [currentTab, limit, searchValue]);
 
   useEffect(() => {
     // 1. Intersection Observer 선언
