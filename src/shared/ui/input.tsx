@@ -11,7 +11,7 @@ const Input = ({ label, suffix, className, ...rest }: Props) => {
   return (
     <div className={clsx("flex flex-col gap-2 relative")}>
       {label && <label>{label}</label>}
-      <input {...rest} className={clsx(className)} />
+      <input {...rest} className={clsx(className, "text-2xl")} />
       {suffix}
     </div>
   );
