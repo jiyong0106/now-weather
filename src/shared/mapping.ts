@@ -1,4 +1,18 @@
 /**
+ * 초단기실황 카테고리
+ */
+export const getUltraSrtNcstCategory = {
+  T1H: " 기온",
+  RN1: "1시간 강수량",
+  UUU: "풍속(동서성분)",
+  VVV: "풍속(남북성분)",
+  REH: "습도",
+  PTY: "강수형태",
+  VEC: "풍향",
+  WSD: "풍속",
+};
+
+/**
  * 단기예보 카테고리
  */
 export const getVilageFcstCategory = {
@@ -14,20 +28,6 @@ export const getVilageFcstCategory = {
   UUU: "풍속(동서성분)",
   VVV: "풍속(남북성분)",
   WAV: "파고",
-  VEC: "풍향",
-  WSD: "풍속",
-};
-
-/**
- * 초단기실황 카테고리
- */
-export const getUltraSrtNcstCategory = {
-  T1H: " 기온",
-  RN1: "1시간 강수량",
-  UUU: "풍속(동서성분)",
-  VVV: "풍속(남북성분)",
-  REH: "습도",
-  PTY: "강수형태",
   VEC: "풍향",
   WSD: "풍속",
 };
