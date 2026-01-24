@@ -1,8 +1,8 @@
 /**
- * 1. 기상청 API 공통 응답 구조 (Generic)
+ * 1. 기상청 API 공통 응답 구조
  *
  */
-export interface KmaResponse<T> {
+export interface WeatherResponseType<T> {
   response: {
     header: {
       resultCode: string;
@@ -41,7 +41,7 @@ export interface NcstItemType {
   obsrValue: string;
 }
 // 최종 응답 타입
-export type NcstResponseType = KmaResponse<NcstItemType>;
+export type NcstResponseType = WeatherResponseType<NcstItemType>;
 
 /**
  * 2. 단기예보(Fcst) 관련 타입
@@ -72,4 +72,4 @@ export interface FcstItemType {
   ny: number;
 }
 // 최종 응답 타입
-export type FcstResponseType = KmaResponse<FcstItemType>;
+export type FcstResponseType = WeatherResponseType<FcstItemType>;

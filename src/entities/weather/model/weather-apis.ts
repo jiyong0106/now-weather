@@ -1,5 +1,5 @@
 import instance from "@/shared/api/axios";
-import type { NcstResponseType } from "./weather-types";
+import type { FcstResponseType, NcstResponseType } from "./weather-types";
 
 // 공공데이터 포탈 버전
 interface WeatherParams {
@@ -18,8 +18,10 @@ export const getNcstData = async (params: WeatherParams) => {
 
 //  단기예보 => 시간대별 기온  및 최저 최고 기온
 export const getFcstData = async (params: WeatherParams) => {
-  const { data } = await instance.get(`getVilageFcst`, { params });
-  return data;
+  const { data } = await instance.get<FcstResponseType>(`getVilageFcst`, {
+    params,
+  });
+  return data.response.body.items;
 };
 
 // # getUltraSrtNcst	초단기실황조회
