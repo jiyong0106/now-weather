@@ -15,6 +15,7 @@ export const useFavoriteStore = create<FavoriteType>()(
       toggleFavorite: (location) =>
         // state=>favorite, toggleFovorite 담고있는 객체
         set((state) => {
+          // 현재 location이 즐겨찾기 배열에 이미 있는지
           const isExist = state.favorites.includes(location);
 
           // 1. 이미 있으면 제거

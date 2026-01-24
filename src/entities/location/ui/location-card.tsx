@@ -1,13 +1,15 @@
 import CommonCard from "@/shared/ui/common-card";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   location: string;
-  /** FSD Slot: 카드 우측에 표시할 액션 요소들 */
   action?: React.ReactNode;
 }
 
 const LocationCard = ({ location, action }: Props) => {
-  const handleClick = () => console.log(`${location} 상세페이지 이동`);
+  const navigate = useNavigate();
+
+  const handleClick = () => navigate(`/location/${location}`);
 
   return (
     <CommonCard
