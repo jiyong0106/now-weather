@@ -6,6 +6,8 @@ interface Props {
 }
 
 const FloatButton = ({ className }: Props) => {
+  
+  // app-layout에 지정해준 id: scroll-root를 기준으로 스크롤 이동
   const scrollToTop = () => {
     const scrollRoot = document.getElementById("scroll-root");
     scrollRoot?.scrollTo({

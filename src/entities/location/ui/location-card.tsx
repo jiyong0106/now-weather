@@ -8,9 +8,7 @@ interface Props {
 const LocationCard = ({ location }: Props) => {
   return (
     <CommonCard className="flex items-center justify-between bg-[#E0F2FF] rounded-xl p-5 hover:scale-[1.02]  cursor-pointer">
-      <h3 className="text-xl font-bold whitespace-nowrap truncate mr-4">
-        {location}
-      </h3>
+      <h3 className="text-xl font-bold">{location}</h3>
       <div className="shrink-0">
         <ToggleFavorite />
       </div>

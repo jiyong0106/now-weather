@@ -4,7 +4,7 @@ import LocationBoard from "@/widgets/location-board/location-board";
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 ">
       <div className="lg:max-w-200">
         <SearchBar />
       </div>
