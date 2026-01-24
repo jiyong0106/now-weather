@@ -7,10 +7,7 @@ import {
   getNcstData,
   getFcstData,
 } from "@/entities/weather/model/weather-apis";
-import type {
-  NcstItemType,
-  FcstItemType,
-} from "@/entities/weather/model/weather-types";
+import type { FcstItemType } from "@/entities/weather/model/weather-types";
 import { getFcstTime, getNcstTime } from "@/entities/weather/model/getBaseTime";
 
 const Sidebar = () => {
