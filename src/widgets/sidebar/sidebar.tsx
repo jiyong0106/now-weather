@@ -20,7 +20,7 @@ const Sidebar = () => {
   const ncts = getNcstTime();
   const fcst = getFcstTime();
   // 1. 초단기 실황
-  const { data: ncstdata } = useQuery<{ item: NcstItemType[] }>({
+  const { data: ncstdata } = useQuery({
     queryKey: ["ncstDataKey", grid],
     queryFn: () =>
       getNcstData({
@@ -30,6 +30,7 @@ const Sidebar = () => {
         base_time: ncts.baseTime,
       }),
     enabled: !!grid,
+    select: (data) => data.item.find((f) => f.category === "T1H"),
   });
 
   // 2, 단기예보
@@ -46,21 +47,21 @@ const Sidebar = () => {
     enabled: !!grid,
   });
 
-  // 1. 초단기실황에서 현재 기온(T1H) 찾기
-  const t1hItem = ncstdata?.item.find((f) => f.category === "T1H");
-  // 2. 단기예보에서 최저기온(TMN) 찾기
+  // 1. 단기예보에서 최저기온(TMN) 찾기
   const tmnItem = fcstData?.item.find((f) => f.category === "TMN");
-  // 3. 단기예보에서 최고기온(TMX) 찾기
+  // 2. 단기예보에서 최고기온(TMX) 찾기
   const tmxItem = fcstData?.item.find((f) => f.category === "TMX");
-
+  // 3. 데이터 합치기
   const combinedWeather = {
-    current: t1hItem,
+    current: ncstdata,
     min: tmnItem,
     max: tmxItem,
   };
 
   // 시간대별은
   // 카테고리가 TMP 인것만
+
+  const hourlyData = fcstData?.item.filter((f) => f.category === "TMP") ?? [];
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -72,8 +73,8 @@ const Sidebar = () => {
 
   return (
     <aside className="p-10 h-full flex flex-col gap-6">
-      <CurrentWeatherCard item={combinedWeather} />
-      <HourlyWeatherCard />
+      <CurrentWeatherCard items={combinedWeather} />
+      <HourlyWeatherCard items={hourlyData} />
     </aside>
   );
 };

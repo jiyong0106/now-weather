@@ -3,11 +3,11 @@ import CommonCard from "@/shared/ui/common-card";
 import type { NcstItemType, FcstItemType } from "../model/weather-types";
 
 interface Props {
-  item?: { current?: NcstItemType; min?: FcstItemType; max?: FcstItemType };
+  items?: { current?: NcstItemType; min?: FcstItemType; max?: FcstItemType };
 }
 
-const CurrentWeatherCard = ({ item = {} }: Props) => {
-  const { current, min, max } = item;
+const CurrentWeatherCard = ({ items = {} }: Props) => {
+  const { current, min, max } = items;
   return (
     <CommonCard className="flex flex-col gap-6 !p-8 shadow-sm border border-blue-100/50">
       {/* 제목과 아이콘 */}
