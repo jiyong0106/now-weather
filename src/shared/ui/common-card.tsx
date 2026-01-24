@@ -5,11 +5,15 @@
 interface Props {
   children: React.ReactNode;
   className?: string;
+  onClick?: () => void;
 }
 
-const CommonCard = ({ children, className }: Props) => {
+const CommonCard = ({ children, className, onClick }: Props) => {
   return (
-    <div className={`bg-[#E0F2FF] rounded-[12px] p-6 ${className}`}>
+    <div
+      onClick={onClick}
+      className={`bg-[#E0F2FF] rounded-xl p-6 ${className}`}
+    >
       {children}
     </div>
   );

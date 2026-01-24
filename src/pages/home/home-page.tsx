@@ -1,174 +1,18 @@
+import SearchBar from "@/features/search/ui/search-bar";
+import FloatButton from "@/shared/ui/float-button";
+import LocationBoard from "@/widgets/location-board/location-board";
 
 const HomePage = () => {
   return (
-    <div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
-      <div>home-page</div>
-      <div>home -page</div>
+    <div className="flex flex-col gap-4 ">
+      <div className="lg:max-w-200">
+        <SearchBar />
+      </div>
+      <LocationBoard />
+      <FloatButton className="fixed bottom-20 right-20" />
     </div>
-  )
-}
+  );
+};
 
 export default HomePage;
 
