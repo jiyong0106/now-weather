@@ -32,7 +32,7 @@ const Sidebar = () => {
 
   // 2, 단기예보
   const { data: fcstData } = useQuery<{ item: FcstItemType[] }>({
-    queryKey: ["fcstDataKey"],
+    queryKey: ["fcstDataKey", grid],
     queryFn: () =>
       getFcstData({
         nx: grid!.nx,
