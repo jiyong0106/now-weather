@@ -9,13 +9,15 @@ interface Props {
 }
 
 const HourlyGridItem = ({ item }: Props) => {
+  const { fcstTime, fcstValue } = item;
+
   return (
     <div className="flex flex-col items-center justify-center bg-white rounded-2xl py-4 gap-2 border-gray-200 border">
       <span className="text-lg text-gray-500">
-        {formatForecastTime(item.fcstTime)}
+        {formatForecastTime(fcstTime)}
       </span>
       <span className="text-2xl">☀️</span>
-      <span className="text-2xl font-bold">{item.fcstValue}°</span>
+      <span className="text-2xl font-bold">{fcstValue}°</span>
     </div>
   );
 };
