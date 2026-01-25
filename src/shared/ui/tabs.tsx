@@ -16,12 +16,12 @@ interface Props {
 
 const Tabs = ({ tabs, currentTab, onTabChange }: Props) => {
   return (
-    <div className="border-b border-slate-400 py-5 flex gap-10">
+    <div className="border-b border-slate-400 py-5 flex gap-10 mx-5">
       {tabs.map((tab) => (
         <button
           className={clsx(
-            "text-4xl",
-            currentTab === tab.key && "text-[#A7D8FF]",
+            "text-3xl",
+            currentTab === tab.key && "text-[#A7D8FF] font-bold",
           )}
           key={tab.key}
           onClick={() => onTabChange(tab.key)}
