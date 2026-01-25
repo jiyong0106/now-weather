@@ -1,6 +1,7 @@
 import { useFavoriteStore } from "@/features/toggle-favorite/model/use-favorite-store";
 import CommonCard from "@/shared/ui/common-card";
 import { useNavigate } from "react-router-dom";
+import { formatAddress } from "../lib/location-formatter";
 
 interface Props {
   location: string;
@@ -20,7 +21,7 @@ const LocationCardItem = ({ location, action }: Props) => {
       onClick={handleClick}
       className="flex items-center justify-between bg-[#E0F2FF] rounded-xl p-5 hover:scale-[1.02] cursor-pointer"
     >
-      <h3 className="text-xl font-bold">{displayName}</h3>
+      <h3 className="text-xl font-bold">{formatAddress(displayName)}</h3>
       <div className="flex items-center gap-2">{action}</div>
     </CommonCard>
   );
