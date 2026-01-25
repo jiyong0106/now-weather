@@ -18,7 +18,7 @@ const LocationCardItem = ({ location, action }: Props) => {
   return (
     <CommonCard
       onClick={handleClick}
-      className="flex items-center justify-between bg-[#E0F2FF] rounded-xl p-5 hover:scale-[1.02] transition-all cursor-pointer"
+      className="flex items-center justify-between bg-[#E0F2FF] rounded-xl p-5 hover:scale-[1.02] cursor-pointer"
     >
       <h3 className="text-xl font-bold">{displayName}</h3>
       <div className="flex items-center gap-2">{action}</div>
