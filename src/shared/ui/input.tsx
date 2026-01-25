@@ -1,6 +1,10 @@
 import type { InputHTMLAttributes } from "react";
 import clsx from "clsx";
 
+/**
+ * 인풋 공통 컴포넌트
+ */
+
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   suffix?: React.ReactNode;

@@ -1,11 +1,12 @@
 import Tabs from "@/shared/ui/tabs";
-import LocationCardList from "@/entities/location/ui/location-card-list";
+import LocationCardLists from "@/entities/location/ui/location-card-lists";
 import { useEffect, useMemo, useRef, useState } from "react";
 import districtsData from "@/shared/api/korea_districts.json";
 import useSearchStore from "@/features/search/model/use-search-store";
 import ToggleFavorite from "@/features/toggle-favorite/ui/toggle-favoirte";
 import { useFavoriteStore } from "@/features/toggle-favorite/model/use-favorite-store";
 import EditLocation from "@/features/edit-location/ui/edit-location";
+import { formatAddress } from "@/entities/location/lib/location-formatter";
 
 const tabs = [
   { key: "region", label: "지역" },
@@ -26,10 +27,13 @@ const LocationBoard = () => {
     let data = currentTab === "region" ? districtsData : favorites;
 
     if (searchValue) {
-      data = data.filter((location) => location.includes(searchValue));
+      data = data.filter((location) => {
+        // 하이픈을 공백으로 바꾼 지역 이름
+        const cleanLocation = formatAddress(location);
+        // cleanLocation에 searchValue가 포함되어 있는지
+        return cleanLocation.includes(searchValue);
+      });
     }
-
-    // 인풋에 입력했을때 공백을 하이픈으롤 인식하게
 
     return data.slice(0, limit);
   }, [currentTab, limit, searchValue]);
@@ -81,7 +85,7 @@ const LocationBoard = () => {
   return (
     <div>
       <Tabs tabs={tabs} currentTab={currentTab} onTabChange={setCurrentTab} />
-      <LocationCardList
+      <LocationCardLists
         locations={filterLocationData}
         renderAction={(location) => (
           <>

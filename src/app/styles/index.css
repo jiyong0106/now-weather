@@ -15,8 +15,6 @@
 body {
   margin: 0;
   padding: 0;
-  /* 실시간 뷰포트 높이 */
-  /* min-height: 100dvh; */
 }
 
 button {

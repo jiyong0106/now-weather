@@ -1,13 +1,19 @@
 import Badge from "@/shared/ui/badge";
 import CommonCard from "@/shared/ui/common-card";
-import type { NcstItemType, FcstItemType } from "../model/weather-types";
+import type { WeatherSummaryType } from "../model/weather-types";
+import { LuMapPin } from "react-icons/lu";
+
+/**
+ * siebar에 현재 날씨를 보여주는 컴포넌트
+ */
 
 interface Props {
-  items?: { current?: NcstItemType; min?: FcstItemType; max?: FcstItemType };
+  items?: WeatherSummaryType;
+  location?: string;
 }
 
-const CurrentWeatherCard = ({ items = {} }: Props) => {
-  const { current, min, max } = items;
+const CurrentWeatherCard = ({ items = {}, location }: Props) => {
+  const { temp, min, max } = items;
   return (
     <CommonCard className="flex flex-col gap-6 !p-8 shadow-sm border border-blue-100/50">
       {/* 제목과 아이콘 */}
@@ -17,9 +23,8 @@ const CurrentWeatherCard = ({ items = {} }: Props) => {
       <div className="flex flex-col">
         <div className="flex items-baseline gap-1">
           <span className="text-8xl font-black tracking-tighter text-slate-800">
-            {current?.obsrValue ?? "--"}
+            {temp ?? "--"}°
           </span>
-          <span className="text-4xl font-bold text-slate-600">°C</span>
         </div>
       </div>
 
@@ -27,21 +32,23 @@ const CurrentWeatherCard = ({ items = {} }: Props) => {
       <div className="h-px bg-blue-200/50 w-full" />
 
       {/* 위치 및 상세 기온 */}
-      <div className="flex flex-col gap-3">
-        <div className="flex items-center gap-2 text-slate-600 font-medium ml-1">
-          <span className="text-lg">📍</span>
-          <span>대한민국, 서울특별시</span>
+      <div className="flex flex-col gap-5">
+        <div className="flex items-center gap-2">
+          <LuMapPin size={15} />
+          <span className="text-gray-500 text-xl">
+            {location || "위치 확인 중..."}
+          </span>
         </div>
 
         <div className="flex gap-4">
           <Badge
             label="최저"
-            value={`${min?.fcstValue ?? "--"}°`}
+            value={`${min ?? "--"}°`}
             labelColor="text-blue-500"
           />
           <Badge
             label="최고"
-            value={`${max?.fcstValue ?? "--"}°`}
+            value={`${max ?? "--"}°`}
             labelColor="text-red-500"
           />
         </div>

@@ -1,13 +1,13 @@
-import Header from "../header/header";
 import { Outlet } from "react-router-dom";
-import Sidebar from "../sidebar/sidebar";
+import Header from "@/widgets/header/ui/header";
+import Sidebar from "@/widgets/sidebar/sidebar";
 
 const AppLayout = () => {
   return (
     <div className="min-h-dvh lg:h-dvh flex flex-col overflow-x-hidden">
       <Header />
       <div className="flex-1 flex flex-col lg:flex-row lg:overflow-hidden">
-        <div className="w-full lg:w-[400px] lg:border-r border-slate-200">
+        <div className="w-full lg:w-[400px] lg:border-r border-gray-200">
           <Sidebar />
         </div>
 

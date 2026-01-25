@@ -1,6 +1,10 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
+/**
+ * 즐겨찾기 전역 상태관리
+ */
+
 interface FavoriteType {
   favorites: string[];
   nicknames: Record<string, string>;
