@@ -38,6 +38,7 @@ const Sidebar = () => {
       }),
     enabled: !!grid,
     select: (data) => data.item.find((f) => f.category === "T1H"),
+    staleTime: 1000 * 60 * 10,
   });
 
   // 2. 단기예보 (시간대별 - 최신 기준)
@@ -56,6 +57,7 @@ const Sidebar = () => {
         numOfRows: 290,
       }),
     enabled: !!grid,
+    staleTime: 1000 * 60 * 10,
   });
 
   // 3.  단기예보 / 일일 최고, 최저기온 (일일 요약 - 02:00 기준)
@@ -72,6 +74,7 @@ const Sidebar = () => {
         numOfRows: 290,
       }),
     enabled: !!grid,
+    staleTime: 1000 * 60 * 10,
   });
 
   //  데이터 가공
