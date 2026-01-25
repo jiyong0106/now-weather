@@ -116,7 +116,7 @@ const LocationDetailPage = () => {
   }, [locationName]);
 
   return (
-    <div className="flex flex-col gap-6  max-w-[700px] mx-auto pb-24">
+    <div className="flex flex-col gap-6  max-w-[700px] mx-auto px-5">
       <WeatherSummary
         items={weatherSummary}
         locationName={locationName || ""}
