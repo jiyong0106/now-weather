@@ -41,7 +41,11 @@ const Sidebar = () => {
   });
 
   // 2. 단기예보 (시간대별 - 최신 기준)
-  const { data: fcstData } = useQuery<{ item: FcstItemType[] }>({
+  const {
+    data: fcstData,
+    isLoading: fcstIsLoading,
+    isError: fcstIsError,
+  } = useQuery<{ item: FcstItemType[] }>({
     queryKey: ["fcstKey", grid],
     queryFn: () =>
       getFcstData({
@@ -55,7 +59,9 @@ const Sidebar = () => {
   });
 
   // 3.  단기예보 / 일일 최고, 최저기온 (일일 요약 - 02:00 기준)
-  const { data: dailyFcstData } = useQuery<{ item: FcstItemType[] }>({
+  const { data: dailyFcstData } = useQuery<{
+    item: FcstItemType[];
+  }>({
     queryKey: ["dailyFcstKey", grid],
     queryFn: () =>
       getFcstData({
@@ -98,7 +104,11 @@ const Sidebar = () => {
   return (
     <aside className="p-10 h-full flex flex-col gap-6">
       <CurrentWeatherCard items={combinedWeather} location={location} />
-      <HourlyWeatherLists items={hourlyData} />
+      <HourlyWeatherLists
+        items={hourlyData}
+        isLoading={fcstIsLoading}
+        isError={fcstIsError}
+      />
     </aside>
   );
 };

@@ -14,10 +14,11 @@ interface Props {
 
 const CurrentWeatherCard = ({ items = {}, location }: Props) => {
   const { temp, min, max } = items;
+  
   return (
     <CommonCard className="flex flex-col gap-6 p-8 shadow-sm ">
       {/* 제목과 아이콘 */}
-      <h3 className="text-2xl ">현재 날씨</h3>
+      <h3 className="text-2xl ">현재 위치 날씨</h3>
 
       {/* 메인 기온 및 상태 */}
       <div className="flex flex-col">

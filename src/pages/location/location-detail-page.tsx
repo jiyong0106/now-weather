@@ -42,7 +42,11 @@ const LocationDetailPage = () => {
   });
 
   // 2. 단기예보 (시간대별 - 최신 기준)
-  const { data: fcstData } = useQuery<{ item: FcstItemType[] }>({
+  const {
+    data: fcstData,
+    isLoading: fcstIsLoading,
+    isError: fcstIsError,
+  } = useQuery<{ item: FcstItemType[] }>({
     queryKey: ["detailFcstKey", grid, locationName],
     queryFn: () =>
       getFcstData({
@@ -55,7 +59,7 @@ const LocationDetailPage = () => {
     enabled: !!grid,
   });
 
-  // 3. [NEW] 단기예보 (일일 요약 - 02:00 기준)
+  // 3. 단기예보 최저, 최고기온 (일일 요약 - 02:00 기준)
   const { data: dailyFcstData } = useQuery<{ item: FcstItemType[] }>({
     queryKey: ["detailDailyFcstKey", grid, locationName],
     queryFn: () =>
@@ -112,12 +116,16 @@ const LocationDetailPage = () => {
   }, [locationName]);
 
   return (
-    <div className="flex flex-col gap-6  max-w-[700px] mx-auto pb-24">
+    <div className="flex flex-col gap-6  max-w-[700px] mx-auto px-5">
       <WeatherSummary
         items={weatherSummary}
         locationName={locationName || ""}
       />
-      <HourlyForecastGrid items={hourlyData} />
+      <HourlyForecastGrid
+        items={hourlyData}
+        isLoading={fcstIsLoading}
+        isError={fcstIsError}
+      />
     </div>
   );
 };
