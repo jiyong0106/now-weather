@@ -14,6 +14,7 @@ import {
   getDailyBaseTime,
 } from "@/entities/weather/lib/getBaseTime";
 import { getAddressFromCoords } from "@/entities/location/model/getAddressFromCoords";
+import { transformHourlyData } from "@/entities/weather/lib/transform-weather";
 
 const Sidebar = () => {
   // lat 위도 lon 경도
@@ -78,7 +79,8 @@ const Sidebar = () => {
     max: tmxItem?.fcstValue,
   };
 
-  const hourlyData = fcstData?.item.filter((f) => f.category === "TMP") ?? [];
+  // 시간별 데이터 변환 (TMP, SKY, PTY를 시간별로 묶음)
+  const hourlyData = transformHourlyData(fcstData?.item || []);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(async (position) => {

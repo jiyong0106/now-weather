@@ -1,22 +1,28 @@
-import type { FcstItemType } from "../model/weather-types";
 import { formatForecastTime } from "@/entities/weather/lib/weather-formatter";
+import WeatherIcon from "./weather-icon";
+import type { HourlyForecastType } from "@/entities/weather/lib/transform-weather";
 
 /**
  * 시간대별 기온을 보여주는 리스트 단일 컴포넌트
  */
 
 interface Props {
-  item: FcstItemType;
+  item: HourlyForecastType;
 }
 
 const HourlyListItem = ({ item }: Props) => {
-  const { fcstTime, fcstValue } = item;
+  const { fcstTime, tmp, sky, pty } = item;
 
   return (
     <div className="flex items-center justify-between py-3 border-b border-blue-100  px-1 ">
       <span className="text-xl w-20">{formatForecastTime(fcstTime)}</span>
-      {/* 시간되면 데이터에따른 아이콘 넣어야함 */}
-      <span className="text-2xl font-bold  text-right w-20">{fcstValue}°</span>
+
+      {/* 날씨 아이콘 */}
+      <div className="text-3xl flex justify-center w-20">
+        <WeatherIcon skyCode={sky} ptyCode={pty} />
+      </div>
+
+      <span className="text-2xl font-bold  text-right w-20">{tmp}°</span>
     </div>
   );
 };

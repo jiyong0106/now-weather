@@ -1,17 +1,16 @@
 import CommonCard from "@/shared/ui/common-card";
-import type { FcstItemType } from "@/entities/weather/model/weather-types";
 import WeatherInfoCard from "@/entities/weather/ui/weather-info-card";
 import { formatForecastTime } from "@/entities/weather/lib/weather-formatter";
+import type { HourlyForecastType } from "@/entities/weather/lib/transform-weather";
 
 /**
  * 시간대별 기온 예보 그리드 컴포넌트
  */
 interface Props {
-  items: FcstItemType[];
+  items: HourlyForecastType[];
 }
 
 const HourlyForecastGrid = ({ items }: Props) => {
-  console.log(items);
   return (
     <CommonCard className="flex flex-col gap-4 shadow-sm ">
       <h3 className="text-2xl font-bold px-2">시간대별 기온</h3>
@@ -21,7 +20,9 @@ const HourlyForecastGrid = ({ items }: Props) => {
           <WeatherInfoCard
             key={`${item.fcstDate}-${item.fcstTime}-${index}`}
             label={formatForecastTime(item.fcstTime)}
-            value={item.fcstValue}
+            value={item.tmp}
+            skyCode={item.sky}
+            ptyCode={item.pty}
           />
         ))}
       </div>
