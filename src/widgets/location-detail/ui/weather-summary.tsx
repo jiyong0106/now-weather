@@ -19,7 +19,7 @@ const WeatherSummary = ({ items, locationName }: Props) => {
   const { temp, wind, humidity, rainType, min, max } = items;
 
   return (
-    <CommonCard>
+    <CommonCard className="shadow-sm ">
       {/*  지역 이름 및 메인 기온 섹션 */}
       <div className="flex flex-col items-center gap-5 mb-5">
         <h2 className="text-2xl font-bold ">
