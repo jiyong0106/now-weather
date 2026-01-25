@@ -1,5 +1,8 @@
 import axios from "axios";
 
+/**
+ * 좌표를 행정구역정보로 변환
+ */
 export const getAddressFromCoords = async (lat: number, lng: number) => {
   try {
     const response = await axios.get(
@@ -25,3 +28,6 @@ export const getAddressFromCoords = async (lat: number, lng: number) => {
     return null;
   }
 };
+
+// curl -v -G GET "https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=127.1086228&y=37.4012191" \
+// -H "Authorization: KakaoAK ${REST_API_KEY}"

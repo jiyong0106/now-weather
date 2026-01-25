@@ -1,6 +1,10 @@
 import axios from "axios";
 import { formatAddress } from "@/entities/location/lib/location-formatter";
 
+/**
+ * 주소를 좌표로 변환
+ */
+
 export const getCoordsFromAddress = async (address: string) => {
   // 1. 하이픈(-)을 공백으로 치환
   const cleanAddr = formatAddress(address);
