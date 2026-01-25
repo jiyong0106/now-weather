@@ -1,4 +1,4 @@
-import { getCoordsFromAddress } from "@/entities/location/model/getCoordsFromAddress";
+import { getCoordsFromAddress } from "@/entities/location/model/get-coords-from-address";
 import { convertToGrid } from "@/entities/weather/model/convert-to-grid";
 import {
   getFcstTime,
