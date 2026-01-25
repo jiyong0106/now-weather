@@ -1,8 +1,8 @@
 /**
- *  api params type
+ * 1. api params type
  */
 
-export interface WeatherParams {
+export interface ApiParamsType {
   nx: number;
   ny: number;
   base_date: string;
@@ -11,10 +11,11 @@ export interface WeatherParams {
 }
 
 /**
- * 1. 기상청 API 공통 응답 구조
+ * 2. 기상청 API 공통 응답 구조
  *
  */
-export interface WeatherResponseType<T> {
+
+export interface ApiResponseType<T> {
   response: {
     header: {
       resultCode: string;
@@ -33,7 +34,7 @@ export interface WeatherResponseType<T> {
 }
 
 /**
- * 2. 초단기실황 관련 타입
+ * 3. 초단기실황 관련 타입
  */
 export type NcstCategoryType =
   | "T1H"
@@ -53,10 +54,10 @@ export interface NcstItemType {
   obsrValue: string;
 }
 // 최종 응답 타입
-export type NcstResponseType = WeatherResponseType<NcstItemType>;
+export type NcstResponseType = ApiResponseType<NcstItemType>;
 
 /**
- * 3. 단기예보 관련 타입
+ * 4. 단기예보 관련 타입
  */
 export type FcstCategoryType =
   | "POP"
@@ -84,7 +85,7 @@ export interface FcstItemType {
   ny: number;
 }
 // 최종 응답 타입
-export type FcstResponseType = WeatherResponseType<FcstItemType>;
+export type FcstResponseType = ApiResponseType<FcstItemType>;
 
 /**  "baseDate": "20260124",
  *   "baseTime": "2300",
@@ -111,7 +112,7 @@ export type FcstResponseType = WeatherResponseType<FcstItemType>;
  */
 
 /**
- * 4. WeatherSummary 사용할 데이터 타입
+ * 5. WeatherSummary 사용할 데이터 타입
  */
 export interface WeatherSummaryType {
   temp?: string;
