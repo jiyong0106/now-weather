@@ -199,15 +199,19 @@ realteeth-test/
 ## 미리보기
 
 - 현재날씨 및 메인페이지
+
   <img width="700" height="370" alt="Image" src="https://github.com/user-attachments/assets/4cc51501-ceac-4bec-b51b-2ea22437acaf" />
 
 - 지역 검색
+
   <img width="700" height="370" alt="Image" src="https://github.com/user-attachments/assets/e46241e0-fd19-41d7-907a-02e8468b7b66" />
 
 - 지역 상세페이지
+
   <img width="700" height="370" alt="Image" src="https://github.com/user-attachments/assets/da6e82d4-8476-4133-b199-53d37bbe599c" />
 
 - 즐겨찾기 탭
+
   <img width="700" height="370" alt="Image" src="https://github.com/user-attachments/assets/ce9f181f-253c-440a-b427-89831149412c" />
 
 ---
