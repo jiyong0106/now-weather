@@ -1,6 +1,7 @@
 import CommonCard from "@/shared/ui/common-card";
 import HourlyListItem from "./hourly-list-item";
 import type { HourlyForecastType } from "@/entities/weather/lib/transform-weather";
+import NotData from "@/shared/ui/not-data";
 
 /**
  * sidebar에서 시간대별 기온을 보여주는 리스트형식  컴포넌트
@@ -23,11 +24,7 @@ const HourlyWeatherLists = ({ items }: Props) => {
             item={item}
           />
         ))}
-        {items.length === 0 && (
-          <p className=" text-2xl text-gray-500  text-center pb-10">
-            예보 데이터가 없습니다.
-          </p>
-        )}
+        {items.length === 0 && <NotData message="예보 데이터가 없습니다." />}
       </div>
     </CommonCard>
   );

@@ -2,6 +2,7 @@ import CommonCard from "@/shared/ui/common-card";
 import WeatherInfoCard from "@/entities/weather/ui/weather-info-card";
 import { formatForecastTime } from "@/entities/weather/lib/weather-formatter";
 import type { HourlyForecastType } from "@/entities/weather/lib/transform-weather";
+import NotData from "@/shared/ui/not-data";
 
 /**
  * 시간대별 기온 예보 그리드 컴포넌트
@@ -26,11 +27,7 @@ const HourlyForecastGrid = ({ items }: Props) => {
           />
         ))}
       </div>
-      {items.length === 0 && (
-        <p className=" text-2xl text-gray-500  text-center pb-10">
-          예보 데이터가 없습니다.
-        </p>
-      )}
+      {items.length === 0 && <NotData message="예보 데이터가 없습니다." />}
     </CommonCard>
   );
 };

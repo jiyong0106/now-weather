@@ -7,6 +7,7 @@ import ToggleFavorite from "@/features/toggle-favorite/ui/toggle-favoirte";
 import { useFavoriteStore } from "@/features/toggle-favorite/model/use-favorite-store";
 import EditLocation from "@/features/edit-location/ui/edit-location";
 import { formatAddress } from "@/entities/location/lib/location-formatter";
+import NotData from "@/shared/ui/not-data";
 
 const tabs = [
   { key: "region", label: "지역" },
@@ -85,16 +86,25 @@ const LocationBoard = () => {
   return (
     <div>
       <Tabs tabs={tabs} currentTab={currentTab} onTabChange={setCurrentTab} />
-      <LocationCardLists
-        locations={filterLocationData}
-        renderAction={(location) => (
-          <>
-            {currentTab === "favorite" && <EditLocation location={location} />}
-            <ToggleFavorite data={location} />
-          </>
-        )}
-      />
-      <div ref={ref} />
+
+      {currentTab === "favorite" && filterLocationData.length === 0 ? (
+        <NotData message="즐겨찾기한 데이터가 없어요" />
+      ) : (
+        <>
+          <LocationCardLists
+            locations={filterLocationData}
+            renderAction={(location) => (
+              <>
+                {currentTab === "favorite" && (
+                  <EditLocation location={location} />
+                )}
+                <ToggleFavorite data={location} />
+              </>
+            )}
+          />
+          <div ref={ref} />
+        </>
+      )}
     </div>
   );
 };
