@@ -1,13 +1,17 @@
 import Badge from "@/shared/ui/badge";
 import CommonCard from "@/shared/ui/common-card";
-import type { NcstItemType, FcstItemType } from "../model/weather-types";
+import type { WeatherSummaryType } from "../model/weather-types";
+
+/**
+ * siebar에 현재 날씨를 보여주는 컴포넌트
+ */
 
 interface Props {
-  items?: { current?: NcstItemType; min?: FcstItemType; max?: FcstItemType };
+  items?: WeatherSummaryType;
 }
 
 const CurrentWeatherCard = ({ items = {} }: Props) => {
-  const { current, min, max } = items;
+  const { temp, min, max } = items;
   return (
     <CommonCard className="flex flex-col gap-6 !p-8 shadow-sm border border-blue-100/50">
       {/* 제목과 아이콘 */}
@@ -17,9 +21,8 @@ const CurrentWeatherCard = ({ items = {} }: Props) => {
       <div className="flex flex-col">
         <div className="flex items-baseline gap-1">
           <span className="text-8xl font-black tracking-tighter text-slate-800">
-            {current?.obsrValue ?? "--"}
+            {temp ?? "--"}°
           </span>
-          <span className="text-4xl font-bold text-slate-600">°C</span>
         </div>
       </div>
 
@@ -36,12 +39,12 @@ const CurrentWeatherCard = ({ items = {} }: Props) => {
         <div className="flex gap-4">
           <Badge
             label="최저"
-            value={`${min?.fcstValue ?? "--"}°`}
+            value={`${min ?? "--"}°`}
             labelColor="text-blue-500"
           />
           <Badge
             label="최고"
-            value={`${max?.fcstValue ?? "--"}°`}
+            value={`${max ?? "--"}°`}
             labelColor="text-red-500"
           />
         </div>

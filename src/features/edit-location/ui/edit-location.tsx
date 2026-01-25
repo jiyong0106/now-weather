@@ -1,6 +1,9 @@
 import { useFavoriteStore } from "@/features/toggle-favorite/model/use-favorite-store";
 import { LuPencil } from "react-icons/lu";
 
+/**
+ * 즐겨찾기 별칭 수정 컴포넌트
+ */
 interface Props {
   location: string;
 }

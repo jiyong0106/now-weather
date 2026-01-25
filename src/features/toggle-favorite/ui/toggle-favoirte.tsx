@@ -1,6 +1,9 @@
 import { GoStar, GoStarFill } from "react-icons/go";
 import { useFavoriteStore } from "../model/use-favorite-store";
 
+/**
+ * 즐겨찾기 버튼 컴포넌트
+ */
 interface Props {
   data: string;
 }

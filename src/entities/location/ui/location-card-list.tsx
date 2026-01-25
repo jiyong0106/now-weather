@@ -2,7 +2,7 @@ import LocationCard from "./location-card";
 
 interface Props {
   locations: string[];
-  /** 각 카드에 주입할 액션 렌더러 */
+  // 각 카드에 주입할 액션 렌더
   renderAction?: (location: string) => React.ReactNode;
 }
 

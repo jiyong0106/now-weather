@@ -10,7 +10,8 @@ interface Props {
 const LocationCard = ({ location, action }: Props) => {
   const navigate = useNavigate();
   const nicknames = useFavoriteStore((state) => state.nicknames);
-  const displayName = nicknames[location] || location; // 별칭이 있으면 별칭 사용
+  // 별칭이 있으면 별칭 사용
+  const displayName = nicknames[location] || location;
 
   const handleClick = () => navigate(`/location/${location}`);
 

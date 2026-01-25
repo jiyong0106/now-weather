@@ -1,5 +1,8 @@
 import clsx from "clsx";
 
+/**
+ * 탭 컴포넌트
+ */
 interface TabItem {
   key: string;
   label: string;
