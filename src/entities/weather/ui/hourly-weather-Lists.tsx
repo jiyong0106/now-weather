@@ -1,17 +1,18 @@
 import CommonCard from "@/shared/ui/common-card";
-import type { FcstItemType } from "../model/weather-types";
 import HourlyListItem from "./hourly-list-item";
+import type { HourlyForecastType } from "@/entities/weather/lib/transform-weather";
 
 /**
  * sidebar에서 시간대별 기온을 보여주는 리스트형식  컴포넌트
  */
+
 interface Props {
-  items: FcstItemType[];
+  items: HourlyForecastType[];
 }
 
-const HourlyWeatherLists = ({ items = [] }: Props) => {
+const HourlyWeatherLists = ({ items }: Props) => {
   return (
-    <CommonCard className="flex flex-col gap-4 overflow-y-auto">
+    <CommonCard className="flex flex-col gap-4 overflow-y-auto shadow-sm ">
       <h3 className="text-2xl font-bold text-slate-800">시간대별 기온</h3>
 
       {/* 내부 스크롤 영역 */}

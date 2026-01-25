@@ -14,6 +14,7 @@ import {
   getDailyBaseTime,
 } from "@/entities/weather/lib/getBaseTime";
 import { getAddressFromCoords } from "@/entities/location/model/getAddressFromCoords";
+import { transformHourlyData } from "@/entities/weather/lib/transform-weather";
 
 const Sidebar = () => {
   // lat 위도 lon 경도
@@ -27,7 +28,7 @@ const Sidebar = () => {
 
   // 1. 초단기 실황
   const { data: ncstdata } = useQuery({
-    queryKey: ["currentData", "ncst", grid],
+    queryKey: ["ncstKey", grid],
     queryFn: () =>
       getNcstData({
         nx: grid!.nx,
@@ -41,7 +42,7 @@ const Sidebar = () => {
 
   // 2. 단기예보 (시간대별 - 최신 기준)
   const { data: fcstData } = useQuery<{ item: FcstItemType[] }>({
-    queryKey: ["currentData", "fcst", grid],
+    queryKey: ["fcstKey", grid],
     queryFn: () =>
       getFcstData({
         nx: grid!.nx,
@@ -55,7 +56,7 @@ const Sidebar = () => {
 
   // 3.  단기예보 / 일일 최고, 최저기온 (일일 요약 - 02:00 기준)
   const { data: dailyFcstData } = useQuery<{ item: FcstItemType[] }>({
-    queryKey: ["currentData", "dailyFcst", grid],
+    queryKey: ["dailyFcstKey", grid],
     queryFn: () =>
       getFcstData({
         nx: grid!.nx,
@@ -78,11 +79,13 @@ const Sidebar = () => {
     max: tmxItem?.fcstValue,
   };
 
-  const hourlyData = fcstData?.item.filter((f) => f.category === "TMP") ?? [];
+  // 시간별 데이터 변환 (TMP, SKY, PTY를 시간별로 묶음)
+  const hourlyData = transformHourlyData(fcstData?.item || []);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(async (position) => {
       const { latitude, longitude } = position.coords;
+
       const gridResult = convertToGrid("toXY", latitude, longitude);
       setGrid({ nx: gridResult.nx, ny: gridResult.ny });
 
@@ -92,16 +95,8 @@ const Sidebar = () => {
     });
   }, []);
 
-  const gridClick = () => {
-    console.log(grid);
-    alert(
-      `${grid?.nx}, ${grid?.ny} ${location || "위치 정보를 가져올 수 없습니다."}`,
-    );
-  };
-
   return (
     <aside className="p-10 h-full flex flex-col gap-6">
-      <button onClick={gridClick}>test</button>
       <CurrentWeatherCard items={combinedWeather} location={location} />
       <HourlyWeatherLists items={hourlyData} />
     </aside>
@@ -109,5 +104,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
-// gird는 잘 나옴,

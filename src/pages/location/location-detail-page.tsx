@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import HourlyForecastGrid from "@/widgets/location-detail/ui/hourly-forecast-grid";
+import { transformHourlyData } from "@/entities/weather/lib/transform-weather";
 
 const LocationDetailPage = () => {
   const { locationName } = useParams();
@@ -25,7 +26,7 @@ const LocationDetailPage = () => {
 
   const ncts = getNcstTime();
   const fcst = getFcstTime();
-  const daily = getDailyBaseTime(); // [NEW] 일일 요약용 시간 (02:00)
+  const daily = getDailyBaseTime(); // 일일 요약용 시간 (02:00)
 
   // 1. 초단기 실황 (전체 데이터 조회, 쿼리키 다르게)
   const { data: ncstdata } = useQuery<{ item: NcstItemType[] }>({
@@ -79,8 +80,8 @@ const LocationDetailPage = () => {
   const tmnItem = dailyFcstData?.item.find((f) => f.category === "TMN");
   const tmxItem = dailyFcstData?.item.find((f) => f.category === "TMX");
 
-  // 시간대별 데이터는 최신 fcstData에서 추출
-  const hourlyData = fcstData?.item.filter((f) => f.category === "TMP") ?? [];
+  // 시간별 데이터 변환 (TMP, SKY, PTY를 시간별로 묶음)
+  const hourlyData = transformHourlyData(fcstData?.item || []);
 
   // 통합 데이터 객체 (UI에 전달할 형태)
   const weatherSummary = {

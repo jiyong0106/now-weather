@@ -2,7 +2,9 @@
  * 기상청 예보 시간("1500")을 읽기 좋은 형태("15시")로 변환
  */
 export const formatForecastTime = (time: string): string => {
-  return `${time.slice(0, 2)}시`;
+  const hour = time.slice(0, 2);
+  if (hour === "00") return "내일";
+  return `${hour}시`;
 };
 
 /*
