@@ -1,4 +1,4 @@
-import LocationCard from "./location-card";
+import LocationCardItem from "./location-card-item";
 
 interface Props {
   locations: string[];
@@ -6,11 +6,11 @@ interface Props {
   renderAction?: (location: string) => React.ReactNode;
 }
 
-const LocationCardList = ({ locations, renderAction }: Props) => {
+const LocationCardLists = ({ locations, renderAction }: Props) => {
   return (
     <div className="grid grid-cols-[repeat(auto-fill,minmax(270px,1fr))] gap-4 overflow-y-auto  lg:max-h-none p-5">
       {locations.map((location) => (
-        <LocationCard
+        <LocationCardItem
           key={location}
           location={location}
           action={renderAction?.(location)}
@@ -20,4 +20,4 @@ const LocationCardList = ({ locations, renderAction }: Props) => {
   );
 };
 
-export default LocationCardList;
+export default LocationCardLists;

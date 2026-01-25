@@ -7,7 +7,7 @@ interface Props {
   action?: React.ReactNode;
 }
 
-const LocationCard = ({ location, action }: Props) => {
+const LocationCardItem = ({ location, action }: Props) => {
   const navigate = useNavigate();
   const nicknames = useFavoriteStore((state) => state.nicknames);
   // 별칭이 있으면 별칭 사용
@@ -26,4 +26,4 @@ const LocationCard = ({ location, action }: Props) => {
   );
 };
 
-export default LocationCard;
+export default LocationCardItem;

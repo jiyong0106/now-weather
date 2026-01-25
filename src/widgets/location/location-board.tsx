@@ -1,5 +1,5 @@
 import Tabs from "@/shared/ui/tabs";
-import LocationCardList from "@/entities/location/ui/location-card-list";
+import LocationCardLists from "@/entities/location/ui/location-card-lists";
 import { useEffect, useMemo, useRef, useState } from "react";
 import districtsData from "@/shared/api/korea_districts.json";
 import useSearchStore from "@/features/search/model/use-search-store";
@@ -81,7 +81,7 @@ const LocationBoard = () => {
   return (
     <div>
       <Tabs tabs={tabs} currentTab={currentTab} onTabChange={setCurrentTab} />
-      <LocationCardList
+      <LocationCardLists
         locations={filterLocationData}
         renderAction={(location) => (
           <>
