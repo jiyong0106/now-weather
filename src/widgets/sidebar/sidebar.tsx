@@ -13,10 +13,13 @@ import {
   getNcstTime,
   getDailyBaseTime,
 } from "@/entities/weather/lib/getBaseTime";
+import { getAddressFromCoords } from "@/entities/location/model/getAddressFromCoords";
 
 const Sidebar = () => {
   // lat 위도 lon 경도
   const [grid, setGrid] = useState<{ nx: number; ny: number } | null>(null);
+  const [location, setLocation] = useState<string>("");
+
   // 정각에 데이터 안나오는걸 대비해서 여유롭게 현재 시간에서 -10분
   const ncts = getNcstTime();
   const fcst = getFcstTime();
@@ -78,16 +81,20 @@ const Sidebar = () => {
   const hourlyData = fcstData?.item.filter((f) => f.category === "TMP") ?? [];
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
+    navigator.geolocation.getCurrentPosition(async (position) => {
       const { latitude, longitude } = position.coords;
       const gridResult = convertToGrid("toXY", latitude, longitude);
       setGrid({ nx: gridResult.nx, ny: gridResult.ny });
+
+      // 주소 변환
+      const addressData = await getAddressFromCoords(latitude, longitude);
+      if (addressData) setLocation(addressData);
     });
   }, []);
 
   return (
     <aside className="p-10 h-full flex flex-col gap-6">
-      <CurrentWeatherCard items={combinedWeather} />
+      <CurrentWeatherCard items={combinedWeather} location={location} />
       <HourlyWeatherLists items={hourlyData} />
     </aside>
   );
