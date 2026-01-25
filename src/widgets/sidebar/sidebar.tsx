@@ -94,7 +94,7 @@ const Sidebar = () => {
 
   const gridClick = () => {
     console.log(grid);
-    alert(`${grid?.nx}, ${grid?.ny}`);
+    alert(`${grid?.nx}, ${grid?.ny} ${location}`);
   };
 
   return (
@@ -107,3 +107,5 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+// gird는 잘 나옴,
