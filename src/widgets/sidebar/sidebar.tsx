@@ -94,7 +94,9 @@ const Sidebar = () => {
 
   const gridClick = () => {
     console.log(grid);
-    alert(`${grid?.nx}, ${grid?.ny} ${location}`);
+    alert(
+      `${grid?.nx}, ${grid?.ny} ${location || "위치 정보를 가져올 수 없습니다."}`,
+    );
   };
 
   return (
