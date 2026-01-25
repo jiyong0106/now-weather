@@ -25,7 +25,7 @@ const LocationDetailPage = () => {
 
   const ncts = getNcstTime();
   const fcst = getFcstTime();
-  const daily = getDailyBaseTime(); // [NEW] 일일 요약용 시간 (02:00)
+  const daily = getDailyBaseTime(); // 일일 요약용 시간 (02:00)
 
   // 1. 초단기 실황 (전체 데이터 조회, 쿼리키 다르게)
   const { data: ncstdata } = useQuery<{ item: NcstItemType[] }>({

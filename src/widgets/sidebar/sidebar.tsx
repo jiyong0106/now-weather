@@ -27,7 +27,7 @@ const Sidebar = () => {
 
   // 1. 초단기 실황
   const { data: ncstdata } = useQuery({
-    queryKey: ["currentData", "ncst", grid],
+    queryKey: ["ncstKey", grid],
     queryFn: () =>
       getNcstData({
         nx: grid!.nx,
@@ -41,7 +41,7 @@ const Sidebar = () => {
 
   // 2. 단기예보 (시간대별 - 최신 기준)
   const { data: fcstData } = useQuery<{ item: FcstItemType[] }>({
-    queryKey: ["currentData", "fcst", grid],
+    queryKey: ["fcstKey", grid],
     queryFn: () =>
       getFcstData({
         nx: grid!.nx,
@@ -55,7 +55,7 @@ const Sidebar = () => {
 
   // 3.  단기예보 / 일일 최고, 최저기온 (일일 요약 - 02:00 기준)
   const { data: dailyFcstData } = useQuery<{ item: FcstItemType[] }>({
-    queryKey: ["currentData", "dailyFcst", grid],
+    queryKey: ["dailyFcstKey", grid],
     queryFn: () =>
       getFcstData({
         nx: grid!.nx,
