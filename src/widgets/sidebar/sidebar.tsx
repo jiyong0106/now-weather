@@ -92,8 +92,14 @@ const Sidebar = () => {
     });
   }, []);
 
+  const gridClick = () => {
+    console.log(grid);
+    alert(`${grid?.nx}, ${grid?.ny}`);
+  };
+
   return (
     <aside className="p-10 h-full flex flex-col gap-6">
+      <button onClick={gridClick}>test</button>
       <CurrentWeatherCard items={combinedWeather} location={location} />
       <HourlyWeatherLists items={hourlyData} />
     </aside>
