@@ -1,6 +1,6 @@
 import SearchBar from "@/features/search/ui/search-bar";
 import FloatButton from "@/shared/ui/float-button";
-import LocationBoard from "@/widgets/location-board/location-board";
+import LocationBoard from "@/widgets/location/location-board";
 
 const HomePage = () => {
   return (

@@ -44,7 +44,7 @@ export interface NcstItemType {
 export type NcstResponseType = WeatherResponseType<NcstItemType>;
 
 /**
- * 2. 단기예보 관련 타입
+ * 3. 단기예보 관련 타입
  */
 export type FcstCategoryType =
   | "POP"
@@ -98,7 +98,9 @@ export type FcstResponseType = WeatherResponseType<FcstItemType>;
  *
  */
 
-// WeatherSummary.tsx에서 사용할 데이터 타입
+/**
+ * 4. WeatherSummary 사용할 데이터 타입
+ */
 export interface WeatherSummaryType {
   temp?: string;
   wind?: string;

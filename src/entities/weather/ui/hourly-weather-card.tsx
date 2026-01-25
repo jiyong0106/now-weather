@@ -20,7 +20,9 @@ const HourlyWeatherCard = ({ items = [] }: Props) => {
           />
         ))}
         {items.length === 0 && (
-          <p className="text-center text-slate-400 py-10">데이터가 없습니다.</p>
+          <p className=" text-2xl text-gray-500  text-center pb-10">
+            예보 데이터가 없습니다.
+          </p>
         )}
       </div>
     </CommonCard>

@@ -1,12 +1,11 @@
 import { getCoordsFromAddress } from "@/entities/location/model/getCoordsFromAddress";
 import { convertToGrid } from "@/entities/weather/model/convert-to-grid";
-import { getFcstTime, getNcstTime } from "@/entities/weather/model/getBaseTime";
+import { getFcstTime, getNcstTime } from "@/entities/weather/lib/getBaseTime";
 import {
   getFcstData,
   getNcstData,
 } from "@/entities/weather/model/weather-apis";
-import WeatherSummary from "@/widgets/weather-detail/ui/weather-summary";
-import HourlyForecastGrid from "@/widgets/weather-detail/ui/hourly-forecast-grid";
+import WeatherSummary from "@/widgets/location-detail/ui/weather-summary";
 import type {
   NcstItemType,
   FcstItemType,
@@ -14,6 +13,7 @@ import type {
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import HourlyForecastGrid from "@/widgets/location-detail/ui/hourly-forecast-grid";
 
 const LocationDetailPage = () => {
   const { locationName } = useParams();

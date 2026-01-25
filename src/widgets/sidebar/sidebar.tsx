@@ -8,7 +8,7 @@ import {
   getFcstData,
 } from "@/entities/weather/model/weather-apis";
 import type { FcstItemType } from "@/entities/weather/model/weather-types";
-import { getFcstTime, getNcstTime } from "@/entities/weather/model/getBaseTime";
+import { getFcstTime, getNcstTime } from "@/entities/weather/lib/getBaseTime";
 
 const Sidebar = () => {
   // lat 위도 lon 경도

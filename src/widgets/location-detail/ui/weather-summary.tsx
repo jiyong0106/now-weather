@@ -4,6 +4,8 @@ import { IoWaterOutline, IoRainyOutline } from "react-icons/io5";
 import { PiWindLight } from "react-icons/pi";
 import type { WeatherSummaryType } from "@/entities/weather/model/weather-types";
 import Badge from "@/shared/ui/badge";
+import { formatAddress } from "@/entities/location/lib/location-formatter";
+import { formatRainType } from "@/entities/weather/lib/weather-formatter";
 
 interface Props {
   items: WeatherSummaryType;
@@ -18,7 +20,7 @@ const WeatherSummary = ({ items, locationName }: Props) => {
       {/*  지역 이름 및 메인 기온 섹션 */}
       <div className="flex flex-col items-center gap-5 mb-5">
         <h2 className="text-2xl font-bold ">
-          {locationName || "위치 정보 없음"}
+          {formatAddress(locationName) || "위치 정보 없음"}
         </h2>
 
         <div className="flex items-start justify-center pl-4">
@@ -55,7 +57,7 @@ const WeatherSummary = ({ items, locationName }: Props) => {
         />
         <WeatherInfoCard
           label="강수"
-          value={rainType === "0" ? "없음" : "비/눈"}
+          value={formatRainType(rainType)}
           icon={<IoRainyOutline fontSize={20} />}
         />
       </div>
