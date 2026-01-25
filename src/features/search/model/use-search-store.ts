@@ -1,6 +1,6 @@
 import { create } from "zustand";
 /**
- * searchbar 전역 상태관리
+ * 검색어 전역 상태관리
  */
 
 interface SearchType {

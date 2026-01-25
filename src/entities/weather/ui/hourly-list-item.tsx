@@ -1,10 +1,14 @@
 import type { FcstItemType } from "../model/weather-types";
 
+/**
+ * 시간대별 기온을 보여주는 리스트 단일 컴포넌트
+ */
+
 interface Props {
   item: FcstItemType;
 }
 
-const HourlyWeatherItem = ({ item }: Props) => {
+const HourlyListItem = ({ item }: Props) => {
   const formattedTime = `${item.fcstTime.slice(0, 2)}시`;
 
   return (
@@ -19,4 +23,4 @@ const HourlyWeatherItem = ({ item }: Props) => {
   );
 };
 
-export default HourlyWeatherItem;
+export default HourlyListItem;

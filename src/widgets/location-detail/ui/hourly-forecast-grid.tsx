@@ -2,6 +2,9 @@ import CommonCard from "@/shared/ui/common-card";
 import type { FcstItemType } from "@/entities/weather/model/weather-types";
 import HourlyGridItem from "@/entities/weather/ui/hourly-grid-item";
 
+/**
+ * 시간대별 기온 예보 그리드 컴포넌트
+ */
 interface Props {
   items: FcstItemType[];
 }

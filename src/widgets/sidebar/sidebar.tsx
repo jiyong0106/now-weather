@@ -1,5 +1,5 @@
 import CurrentWeatherCard from "@/entities/weather/ui/current-weather-card";
-import HourlyWeatherCard from "@/entities/weather/ui/hourly-weather-card";
+import HourlyWeatherLists from "@/entities/weather/ui/hourly-weather-Lists";
 import { useEffect, useState } from "react";
 import { convertToGrid } from "@/entities/weather/model/convert-to-grid";
 import { useQuery } from "@tanstack/react-query";
@@ -71,7 +71,7 @@ const Sidebar = () => {
   return (
     <aside className="p-10 h-full flex flex-col gap-6">
       <CurrentWeatherCard items={combinedWeather} />
-      <HourlyWeatherCard items={hourlyData} />
+      <HourlyWeatherLists items={hourlyData} />
     </aside>
   );
 };

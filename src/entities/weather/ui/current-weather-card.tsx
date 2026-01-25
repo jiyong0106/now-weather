@@ -2,6 +2,10 @@ import Badge from "@/shared/ui/badge";
 import CommonCard from "@/shared/ui/common-card";
 import type { WeatherSummaryType } from "../model/weather-types";
 
+/**
+ * siebar에 현재 날씨를 보여주는 컴포넌트
+ */
+
 interface Props {
   items?: WeatherSummaryType;
 }

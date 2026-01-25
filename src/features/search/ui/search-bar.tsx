@@ -4,6 +4,9 @@ import useSearchStore from "../model/use-search-store";
 import debounce from "lodash/debounce";
 import { useMemo } from "react";
 
+/**
+ * 검색어 입력 컴포넌트
+ */
 const SearchBar = () => {
   const { setSearchValue } = useSearchStore();
 

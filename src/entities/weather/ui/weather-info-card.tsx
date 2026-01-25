@@ -1,3 +1,7 @@
+/**
+ * 날씨정보 상세 내용 넣는 컴포넌트 (풍속,습도,강수,풍향,날씨 등)
+ */
+
 interface Props {
   label: string;
   value: string;

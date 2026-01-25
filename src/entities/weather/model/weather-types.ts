@@ -1,4 +1,16 @@
 /**
+ *  api params type
+ */
+
+export interface WeatherParams {
+  nx: number;
+  ny: number;
+  base_date: string;
+  base_time: string;
+  numOfRows?: number;
+}
+
+/**
  * 1. 기상청 API 공통 응답 구조
  *
  */

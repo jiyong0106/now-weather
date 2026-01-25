@@ -7,6 +7,9 @@ import Badge from "@/shared/ui/badge";
 import { formatAddress } from "@/entities/location/lib/location-formatter";
 import { formatRainType } from "@/entities/weather/lib/weather-formatter";
 
+/**
+ * 날씨 요약 컴포넌트
+ */
 interface Props {
   items: WeatherSummaryType;
   locationName: string;

@@ -1,6 +1,10 @@
 import { FaAngleUp } from "react-icons/fa";
 import clsx from "clsx";
 
+/**
+ * 상단으로 이동하는 버튼 컴포넌트
+ */
+
 interface Props {
   className?: string;
 }

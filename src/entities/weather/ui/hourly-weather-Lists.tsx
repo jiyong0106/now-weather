@@ -1,12 +1,15 @@
 import CommonCard from "@/shared/ui/common-card";
 import type { FcstItemType } from "../model/weather-types";
-import HourlyWeatherItem from "./hourly-weather-item";
+import HourlyListItem from "./hourly-list-item";
 
+/**
+ * sidebar에서 시간대별 기온을 보여주는 리스트형식  컴포넌트
+ */
 interface Props {
   items: FcstItemType[];
 }
 
-const HourlyWeatherCard = ({ items = [] }: Props) => {
+const HourlyWeatherLists = ({ items = [] }: Props) => {
   return (
     <CommonCard className="flex flex-col gap-4 overflow-y-auto">
       <h3 className="text-2xl font-bold text-slate-800">시간대별 기온</h3>
@@ -14,7 +17,7 @@ const HourlyWeatherCard = ({ items = [] }: Props) => {
       {/* 내부 스크롤 영역 */}
       <div className="flex flex-col gap-1  max-h-[320px] lg:max-h-[500px]  pr-2 ">
         {items.map((item, index) => (
-          <HourlyWeatherItem
+          <HourlyListItem
             key={`${item.fcstDate}-${item.fcstTime}-${index}`}
             item={item}
           />
@@ -29,4 +32,4 @@ const HourlyWeatherCard = ({ items = [] }: Props) => {
   );
 };
 
-export default HourlyWeatherCard;
+export default HourlyWeatherLists;
