@@ -18,7 +18,16 @@
    npm install
    ```
 
-3. **개발 서버 실행**
+3. **env생성**
+- 프로젝트 루트에 .env 생성
+
+   ```bash
+   VITE_API_URL = 공공 데이터 포탈 Api End Point
+   VITE_API_KEY = 공공 데이터 포탈 개인 API인증키(Decoding key)
+   VITE_KAKAO_REST_API_KEY = 카카오 디벨로퍼스 REST API key
+   ```
+
+4. **개발 서버 실행**
 
    ```bash
    npm run dev

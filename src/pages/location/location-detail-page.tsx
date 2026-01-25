@@ -39,6 +39,7 @@ const LocationDetailPage = () => {
         base_time: ncts.baseTime,
       }),
     enabled: !!grid,
+    staleTime: 1000 * 60 * 10, // 10분
   });
 
   // 2. 단기예보 (시간대별 - 최신 기준)
@@ -57,6 +58,7 @@ const LocationDetailPage = () => {
         numOfRows: 290,
       }),
     enabled: !!grid,
+    staleTime: 1000 * 60 * 10,
   });
 
   // 3. 단기예보 최저, 최고기온 (일일 요약 - 02:00 기준)
@@ -71,6 +73,7 @@ const LocationDetailPage = () => {
         numOfRows: 290,
       }),
     enabled: !!grid,
+    staleTime: 1000 * 60 * 10,
   });
 
   // 4. 데이터 가공 (기온,강수,습도,풍속)
@@ -117,6 +120,7 @@ const LocationDetailPage = () => {
 
   return (
     <div className="flex flex-col gap-6  max-w-[700px] mx-auto px-5">
+
       <WeatherSummary
         items={weatherSummary}
         locationName={locationName || ""}
