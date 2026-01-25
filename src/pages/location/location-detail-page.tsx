@@ -48,14 +48,14 @@ const LocationDetailPage = () => {
     enabled: !!grid,
   });
 
-  // 4. 데이터 가공 (상세)
+  // 4. 데이터 가공 (기온,강수,습도,풍속)
   const items = ncstdata?.item || [];
   const t1hItem = items.find((f) => f.category === "T1H"); // 기온
   const wsdItem = items.find((f) => f.category === "WSD"); // 풍속
   const rehItem = items.find((f) => f.category === "REH"); // 습도
   const ptyItem = items.find((f) => f.category === "PTY"); // 강수형태
 
-  // 단기예보에서 최저/최고
+  // 단기예보에서 최저/최고/일일
   const tmnItem = fcstData?.item.find((f) => f.category === "TMN");
   const tmxItem = fcstData?.item.find((f) => f.category === "TMX");
   const hourlyData = fcstData?.item.filter((f) => f.category === "TMP") ?? [];

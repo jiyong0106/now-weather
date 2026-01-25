@@ -15,7 +15,7 @@ const WeatherSummary = ({ items, locationName }: Props) => {
 
   return (
     <CommonCard>
-      {/* 1. 지역 이름 및 메인 기온 섹션 */}
+      {/*  지역 이름 및 메인 기온 섹션 */}
       <div className="flex flex-col items-center gap-5 mb-5">
         <h2 className="text-2xl font-bold ">
           {locationName || "위치 정보 없음"}
@@ -41,7 +41,7 @@ const WeatherSummary = ({ items, locationName }: Props) => {
         </div>
       </div>
 
-      {/* 2. 하단 상세 정보 타일 (풍속/습도/강수) */}
+      {/* 하단 상세 정보 타일 (풍속/습도/강수) */}
       <div className="grid grid-cols-3 gap-3 w-full px-4 mt-2">
         <WeatherInfoCard
           label="풍속"
