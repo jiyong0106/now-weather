@@ -13,7 +13,7 @@ import {
   getNcstTime,
   getDailyBaseTime,
 } from "@/entities/weather/lib/getBaseTime";
-import { getAddressFromCoords } from "@/entities/location/model/getAddressFromCoords";
+import { getAddressFromCoords } from "@/entities/location/model/get-address-from-coords";
 import { transformHourlyData } from "@/entities/weather/lib/transform-weather";
 
 const Sidebar = () => {
