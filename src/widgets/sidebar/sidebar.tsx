@@ -50,9 +50,9 @@ const Sidebar = () => {
   const tmxItem = fcstData?.item.find((f) => f.category === "TMX");
   // 3. 데이터 합치기
   const combinedWeather = {
-    current: ncstdata,
-    min: tmnItem,
-    max: tmxItem,
+    temp: ncstdata?.obsrValue,
+    min: tmnItem?.fcstValue,
+    max: tmxItem?.fcstValue,
   };
 
   // 시간대별은

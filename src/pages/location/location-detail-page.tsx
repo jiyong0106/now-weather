@@ -16,15 +16,14 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 
 const LocationDetailPage = () => {
-  // LocationDetailPage.tsx 내부 예시
-  const { locationName } = useParams(); // URL에서 주소 획득
+  const { locationName } = useParams();
   const [grid, setGrid] = useState<{ nx: number; ny: number } | null>(null);
 
   const ncts = getNcstTime();
   const fcst = getFcstTime();
   // 초단기 실황 (전체 데이터 조회, 쿼리키 다르게)
   const { data: ncstdata } = useQuery<{ item: NcstItemType[] }>({
-    queryKey: ["ncstDataKey", grid],
+    queryKey: ["detailNcstKey", grid, locationName],
     queryFn: () =>
       getNcstData({
         nx: grid!.nx,
@@ -37,7 +36,7 @@ const LocationDetailPage = () => {
 
   // 2, 단기예보
   const { data: fcstData } = useQuery<{ item: FcstItemType[] }>({
-    queryKey: ["fcstDataKey", grid],
+    queryKey: ["detailFcstKey", grid, locationName],
     queryFn: () =>
       getFcstData({
         nx: grid!.nx,
@@ -90,8 +89,11 @@ const LocationDetailPage = () => {
   }, [locationName]);
 
   return (
-    <div className="flex flex-col gap-6 p-6 max-w-3xl mx-auto pb-24">
-      <WeatherSummary data={weatherSummary} locationName={locationName || ""} />
+    <div className="flex flex-col gap-6  max-w-[700px] mx-auto pb-24">
+      <WeatherSummary
+        items={weatherSummary}
+        locationName={locationName || ""}
+      />
       <HourlyForecastGrid items={hourlyData} />
     </div>
   );
