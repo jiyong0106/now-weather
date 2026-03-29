@@ -1,4 +1,4 @@
-# realteeth-test
+# now-weather
 
 - **배포 사이트:** [https://realteeth-test.vercel.app/](https://realteeth-test.vercel.app/)
 
