@@ -8,7 +8,7 @@
 1. **레포지토리 클론**
 
    ```bash
-   git clone https://github.com/jiyong0106/realteeth-teset.git
+   git clone https://github.com/jiyong0106/now-weather.git
    ```
 
 2. **패키지 설치**
@@ -72,7 +72,7 @@
 - **shared** : 공통적으로 사용되는 컴포넌트
 
 ```
-realteeth-test/
+now-weather/
   ├─ public/
   ├─ src/
   │  ├─ app/
