@@ -76,7 +76,7 @@ const LocationDetailPage = () => {
     staleTime: 1000 * 60 * 10,
   });
 
-  // 4. 데이터 가공 (기온,강수,습도,풍속)
+  //  데이터 가공 (기온,강수,습도,풍속)
   const items = ncstdata?.item || [];
   const t1hItem = items.find((f) => f.category === "T1H"); // 기온
   const wsdItem = items.find((f) => f.category === "WSD"); // 풍속
