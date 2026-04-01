@@ -120,7 +120,7 @@ const LocationDetailPage = () => {
 
   return (
     <div className="flex flex-col gap-6  max-w-[700px] mx-auto px-5">
-
+      <div>뒤로가기</div>
       <WeatherSummary
         items={weatherSummary}
         locationName={locationName || ""}
